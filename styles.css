@@ -111,3 +111,26 @@ body {
     animation: none;
   }
 }
+
+/* Soft blurred decorative shapes */
+.entry-content::after,
+.chapter-card::before,
+.chapter-card::after {
+  filter: blur(18px);
+  opacity: 0.45;
+}
+
+/* Make large circular outlines less defined */
+.entry-content::after {
+  border-color: rgba(201, 226, 246, 0.05);
+  box-shadow:
+    0 0 0 28px rgba(201, 226, 246, 0.018),
+    0 0 0 57px rgba(201, 226, 246, 0.012);
+}
+
+/* Keep the glass panels and text crisp */
+.glass,
+.chapter-card {
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+}
