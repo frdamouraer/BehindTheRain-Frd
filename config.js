@@ -2,7 +2,7 @@
 const siteConfig = {
   chapterImages: {
     1: "images/chapter-01.jpg",
-    2: "images/chapter-02.png",
+    2: "images/chapter-02.webp",
     3: "images/chapter-03.jpg",
     4: "images/chapter-04.jpg",
     5: "images/chapter-05.jpg",
