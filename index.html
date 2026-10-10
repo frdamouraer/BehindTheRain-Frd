@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071322">
+  <meta name="description" content="Behind the Rain — sebuah cerita kecil tentang pertemanan, jarak, dan hal-hal baik yang semoga menunggu di depan.">
+  <title>Behind the Rain</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="rain-layer" aria-hidden="true"></div>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="wordmark" href="#" id="homeLink" aria-label="Behind the Rain, kembali ke awal">
+        <span class="wordmark-mark">☂</span><span>BEHIND <i>THE</i> RAIN</span>
+      </a>
+      <div class="top-meta"><span class="live-dot"></span><span id="chapterLabel">A little story</span></div>
+    </header>
+
+    <section class="entry-screen screen active" id="entryScreen">
+      <div class="entry-content glass">
+        <div class="eyebrow"><span class="eyebrow-line"></span> A STORY IN THE RAIN</div>
+        <h1>Behind<br><em>the Rain.</em></h1>
+        <p class="entry-copy">Ada cerita yang nggak perlu buru-buru dipahami.<br>Masuk aja, pelan-pelan.</p>
+        <form id="entryForm" class="entry-form">
+          <label for="visitorName">Sebelum mulai, boleh tahu nama kamu?</label>
+          <div class="input-wrap"><input id="visitorName" name="visitorName" type="text" maxlength="40" placeholder="Tulis nama kamu di sini..." required autocomplete="given-name"><span>↗</span></div>
+          <button class="primary-btn" type="submit">Masuk ke cerita <span>→</span></button>
+        </form>
+        <div class="entry-foot"><span>01 / A SMALL BEGINNING</span><span>Take your time.</span></div>
+      </div>
+      <div class="entry-side-note"><span class="vertical-rule"></span><span>some things are better<br>discovered slowly</span></div>
+    </section>
+
+    <section class="story-screen screen" id="storyScreen" aria-live="polite">
+      <div class="story-layout">
+        <aside class="chapter-rail">
+          <div class="rail-caption">THE CHAPTERS</div>
+          <div class="rail-list" id="railList"></div>
+          <div class="rail-bottom">A STORY BY<br><strong>FARID</strong></div>
+          <div class="gif-slot glass" id="gifSlot" aria-label="Tempat GIF Doraemon dan Rainbow Ruby">
+            <img id="runningGif" src="images/running-duo.gif" alt="Doraemon dan Rainbow Ruby berlari bersama" hidden>
+            <div class="gif-placeholder" id="gifPlaceholder"><span class="gif-placeholder-icon">✦</span><span>GIF SLOT</span><small>running duo</small></div>
+          </div>
+        </aside>
+
+        <article class="chapter-card glass" id="chapterCard">
+          <div class="chapter-top"><span id="chapterNumber">CHAPTER 01</span><span class="chapter-dash"></span><span id="chapterType">THE BEGINNING</span></div>
+          <div id="chapterContent" class="chapter-content"></div>
+          <div class="chapter-footer">
+            <div class="progress-wrap"><div class="progress-track"><div id="progressFill"></div></div><span id="progressText">01 / 10</span></div>
+            <div class="nav-buttons"><button id="prevBtn" class="quiet-btn" type="button" aria-label="Chapter sebelumnya">← <span>Back</span></button><button id="nextBtn" class="primary-btn next-btn" type="button">Lanjut <span>→</span></button></div>
+          </div>
+        </article>
+      </div>
+      <div class="story-greeting" id="storyGreeting">Hi there.</div>
+    </section>
+
+    <div class="music-widget glass" id="musicWidget" aria-label="Kontrol musik">
+      <button type="button" id="musicToggle" class="music-toggle" aria-label="Putar musik" title="Putar musik">▶</button>
+      <div class="music-meta"><span class="music-kicker">A SONG FOR THE STORY</span><span class="music-title" id="musicTitle">Ruang Baru</span></div>
+      <input id="musicVolume" class="music-volume" type="range" min="0" max="1" step="0.05" value="0.55" aria-label="Volume musik">
+      <audio id="backgroundMusic" loop preload="none"></audio>
+    </div>
+
+    <footer class="site-footer"><span>BEHIND THE RAIN <span class="visit-count" id="visitCount" hidden>· <b id="visitNumber">—</b> visits</span></span><span>Made with a little thought, by Farid.</span></footer>
+  </main>
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

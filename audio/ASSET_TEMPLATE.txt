@@ -1,0 +1,1 @@
+Taruh MP3 pilihanmu di sini dengan nama background-music.mp3. Judul dan path diatur di config.js.

@@ -1,0 +1,5 @@
+ASSET TEMPLATE
+- GIF Doraemon + Rainbow Ruby: running-duo.gif
+- Gambar chapter: chapter-01.jpg sampai chapter-10.jpg (atur path di config.js)
+- Ilustrasi Doraemon + Rainbow Ruby yang dipilih sebelumnya: doraemon-rainbow-ruby.png
+Letakkan file media di folder ini. Pastikan ekstensi file benar.
