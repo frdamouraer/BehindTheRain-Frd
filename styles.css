@@ -41,3 +41,73 @@ h1{font:500 clamp(55px,9vw,91px)/.98 'Playfair Display',serif;letter-spacing:-.0
 @media(max-width:800px){.app-shell{padding:18px 17px 14px}.entry-side-note{display:none}.entry-screen{min-height:calc(100vh - 110px);padding:28px 0 45px}.entry-content{padding:31px 25px;border-radius:20px}.entry-foot{margin-top:35px}.story-screen{padding:22px 0;min-height:calc(100vh - 110px)}.story-layout{grid-template-columns:1fr;gap:15px}.chapter-rail{padding:0;display:block}.rail-caption,.rail-bottom{display:none}.rail-list{flex-direction:row;overflow-x:auto;padding:2px 0 8px;gap:6px;scrollbar-width:none}.rail-list::-webkit-scrollbar{display:none}.rail-item{flex:0 0 auto;padding:9px 11px;border:1px solid transparent;white-space:nowrap}.rail-item.active{border-color:rgba(198,225,245,.14)}.rail-item .rail-num{display:none}.chapter-card{min-height:calc(100vh - 225px);padding:25px 21px 20px;border-radius:18px}.chapter-content{padding:31px 0 32px}.chapter-content h2{font-size:clamp(34px,8vw,47px)}.chapter-content p{font-size:13px}.chapter-footer{align-items:flex-end}.progress-wrap{min-width:auto;gap:8px}.progress-track{width:38px}.quiet-btn{padding:10px 5px}.quiet-btn span{display:none}.next-btn{min-width:98px}.story-greeting{font-size:9px}.site-footer{font-size:8px}.site-footer span:last-child{text-align:right}.feature-grid{grid-template-columns:1fr}.chat-bubble{max-width:95%}.music-widget{bottom:54px;right:12px;width:min(285px,calc(100vw - 24px));padding:8px 10px}.music-volume{width:40px}}
 @media(max-width:390px){.top-meta{font-size:9px}.wordmark{font-size:9px}.entry-content{padding:27px 20px}h1{font-size:58px}.entry-copy{font-size:13px}.chapter-card{padding:22px 17px 17px}.chapter-top{font-size:8px;gap:8px}.chapter-content h2{font-size:32px}.chapter-content p{font-size:12px}.nav-buttons{gap:3px}.next-btn{min-width:88px;padding:11px}.progress-wrap{font-size:8px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}.rain-layer{display:none}}
+
+/* === BEHIND THE RAIN: LIVING BACKGROUND === */
+
+/* Hujan lebih terlihat, tetap lembut */
+.rain-layer {
+  opacity: 0.38;
+  background-image:
+    repeating-linear-gradient(
+      103deg,
+      transparent 0 22px,
+      rgba(183, 216, 241, 0.32) 23px,
+      transparent 24px 48px
+    );
+  background-size: 140px 250px;
+  animation: rain 1.15s linear infinite;
+}
+
+/* Gradient biru bergerak perlahan */
+body {
+  background-size: 160% 160%;
+  animation: blueGradientDrift 22s ease-in-out infinite alternate;
+}
+
+@keyframes blueGradientDrift {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 50% 30%;
+  }
+  100% {
+    background-position: 100% 80%;
+  }
+}
+
+/* Cahaya biru ikut bergeser */
+.ambient-one {
+  animation: blueGlowOne 16s ease-in-out infinite alternate;
+}
+
+.ambient-two {
+  animation: blueGlowTwo 20s ease-in-out infinite alternate;
+}
+
+@keyframes blueGlowOne {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(65px, 45px);
+  }
+}
+
+@keyframes blueGlowTwo {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(-55px, -35px);
+  }
+}
+
+/* Hormati pengaturan pengurangan animasi */
+@media (prefers-reduced-motion: reduce) {
+  body,
+  .ambient-one,
+  .ambient-two {
+    animation: none;
+  }
+}
