@@ -82,34 +82,62 @@ function safeText(value){return value.replace(/[&<>"']/g, c => ({'&':'&amp;','<'
 function renderRail(){
   railList.innerHTML = chapters.map((c,i)=>`<div class="rail-item ${i===current?'active':''}" ${i===current?'aria-current="step"':''}><span class="rail-num">${String(i+1).padStart(2,'0')}</span><span>${c.title}</span></div>`).join('');
 }
-function showChapter(index){
-  current = Math.max(0,Math.min(chapters.length-1,index));
-  const c = chapters[current];
-  document.getElementById('chapterNumber').textContent = `CHAPTER ${String(current+1).padStart(2,'0')}`;
-  document.getElementById('chapterType').textContent = c.type;
-  chapterContent.innerHTML = c.body;
-  const imagePath = siteConfig?.chapterImages?.[current + 1];
-  if (current !== 5 && current !== 9 && imagePath) {
-    const img = document.createElement('img');
-    img.className = 'chapter-asset';
-    img.src = imagePath;
-    img.alt = `Gambar untuk chapter ${String(current+1).padStart(2,'0')}`;
-    img.loading = 'lazy';
-    img.onerror = () => img.remove();
-    const heading = chapterContent.querySelector('h2');
-    if (heading) heading.insertAdjacentElement('afterend', img);
+function showChapter(index, direction = 0){
+  const card = document.getElementById('chapterCard');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const renderChapter = () => {
+    current = Math.max(0,Math.min(chapters.length-1,index));
+    const c = chapters[current];
+    document.getElementById('chapterNumber').textContent = `CHAPTER ${String(current+1).padStart(2,'0')}`;
+    document.getElementById('chapterType').textContent = c.type;
+    chapterContent.innerHTML = c.body;
+    const imagePath = siteConfig?.chapterImages?.[current + 1];
+    if (current !== 5 && current !== 9 && imagePath) {
+      const img = document.createElement('img');
+      img.className = 'chapter-asset';
+      img.src = imagePath;
+      img.alt = `Gambar untuk chapter ${String(current+1).padStart(2,'0')}`;
+      img.loading = 'lazy';
+      img.onerror = () => img.remove();
+      const heading = chapterContent.querySelector('h2');
+      if (heading) heading.insertAdjacentElement('afterend', img);
+    }
+    chapterContent.classList.remove('reflow');
+    void chapterContent.offsetWidth;
+    chapterContent.classList.add('reflow');
+    document.getElementById('progressFill').style.width = `${((current+1)/chapters.length)*100}%`;
+    document.getElementById('progressText').textContent = `${String(current+1).padStart(2,'0')} / ${String(chapters.length).padStart(2,'0')}`;
+    document.getElementById('prevBtn').disabled = current===0;
+    const next = document.getElementById('nextBtn');
+    next.innerHTML = current===chapters.length-1 ? 'Baca lagi <span>↻</span>' : 'Lanjut <span>→</span>';
+    document.getElementById('chapterLabel').textContent = c.title;
+    renderRail();
+    chapterContent.querySelectorAll('img').forEach(img=>img.addEventListener('error',()=>img.style.display='none'));
+  };
+
+  if (!direction || reducedMotion || !card.animate) {
+    renderChapter();
+    return;
   }
-  chapterContent.classList.remove('reflow');
-  void chapterContent.offsetWidth;
-  chapterContent.classList.add('reflow');
-  document.getElementById('progressFill').style.width = `${((current+1)/chapters.length)*100}%`;
-  document.getElementById('progressText').textContent = `${String(current+1).padStart(2,'0')} / ${String(chapters.length).padStart(2,'0')}`;
-  document.getElementById('prevBtn').disabled = current===0;
-  const next = document.getElementById('nextBtn');
-  next.innerHTML = current===chapters.length-1 ? 'Baca lagi <span>↻</span>' : 'Lanjut <span>→</span>';
-  document.getElementById('chapterLabel').textContent = c.title;
-  renderRail();
-  chapterContent.querySelectorAll('img').forEach(img=>img.addEventListener('error',()=>img.style.display='none'));
+
+  const sign = direction > 0 ? 1 : -1;
+  card.animate(
+    [
+      { opacity: 1, transform: 'translateX(0) scale(1)' },
+      { opacity: 0, transform: `translateX(${-sign * 18}px) scale(.992)` }
+    ],
+    { duration: 190, easing: 'cubic-bezier(.4, 0, 1, 1)', fill: 'forwards' }
+  ).onfinish = () => {
+    renderChapter();
+    card.animate(
+      [
+        { opacity: 0, transform: `translateX(${sign * 22}px) scale(.992)` },
+        { opacity: 1, transform: 'translateX(0) scale(1)' }
+      ],
+      { duration: 520, easing: 'cubic-bezier(.22, 1, .36, 1)', fill: 'both' }
+    );
+  };
 }
 entryForm.addEventListener('submit',e=>{
   e.preventDefault();
@@ -124,9 +152,9 @@ entryForm.addEventListener('submit',e=>{
 });
 document.getElementById('nextBtn').addEventListener('click',()=>{
   if(current===chapters.length-1){showChapter(0);return;}
-  showChapter(current+1);
+  showChapter(current+1, 1);
 });
-document.getElementById('prevBtn').addEventListener('click',()=>showChapter(current-1));
+document.getElementById('prevBtn').addEventListener('click',()=>showChapter(current-1, -1));
 document.getElementById('homeLink').addEventListener('click',e=>{
   e.preventDefault();
   storyScreen.classList.remove('active');
