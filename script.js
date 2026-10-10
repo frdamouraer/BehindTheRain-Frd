@@ -42,7 +42,7 @@ const chapters = [
  {title:"A Kind of Understanding",type:"CARE, WITH BOUNDARIES",kicker:"CHAPTER 07 · BEING THERE",body:`
   <h2>Peduli juga berarti<br><em>tahu batas.</em></h2>
   <p>Ada masa ketika hidup lagi berat, ketika semuanya terasa penuh, dan seseorang cuma butuh didengar tanpa harus langsung diberi solusi. Kita pernah ada di posisi itu, dengan cara kita masing-masing.</p>
-  <p>Kalau bisa saling menguatkan, ya kita coba. Kalo bisa saling menguatkan, ya kita coba. Tapi kita juga belajar bahwa setiap orang punya ruang hidupnya sendiri, dan menghargai ruang itu adalah bagian dari kepedulian.</p>
+  <p>Kalau bisa saling menguatkan, ya kita coba. Tapi kita juga belajar bahwa setiap orang punya ruang hidupnya sendiri, dan menghargai ruang itu adalah bagian dari kepedulian.</p>
   <p>Buatku, pertemanan yang baik bukan tentang harus selalu tersedia. Tapi tentang bisa saling menghargai, tanpa membuat satu sama lain merasa punya kewajiban yang berlebihan.</p>
   <div class="pull-quote">Care can be quiet. And respect is part of it.</div>`},
  {title:"The Little Things",type:"WHAT I ADMIRE",kicker:"CHAPTER 08 · MORE THAN WORDS",body:`
