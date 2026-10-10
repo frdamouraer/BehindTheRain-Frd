@@ -12,7 +12,7 @@ const siteConfig = {
   },
   runningGif: "images/running-duo.gif",
   music: {
-    title: "Ruang Baru",
+    title: "her - JVKE",
     src: "audio/background-music.mp3"
   },
   visitCounterUrl: ""
