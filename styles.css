@@ -216,3 +216,15 @@ body {
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
+
+/* Glass blur untuk opening dan card cerita */
+.chapter-card.glass,
+#landing .glass {
+  background: linear-gradient(
+    135deg,
+    rgba(25, 48, 70, 0.48),
+    rgba(8, 24, 40, 0.38)
+  );
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+}
