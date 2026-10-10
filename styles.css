@@ -247,3 +247,7 @@ body {
     transform: translateY(0);
   }
 }
+
+/* Chapter illustrations: compact landscape presentation */
+.chapter-asset{display:block;width:100%;max-width:420px;height:auto;aspect-ratio:16/9;object-fit:cover;object-position:center;border-radius:12px;border:1px solid rgba(205,230,247,.22);margin:16px 0 18px;box-shadow:0 12px 32px rgba(0,0,0,.18)}
+@media(max-width:800px){.chapter-asset{max-width:100%;aspect-ratio:16/9;margin:14px 0 16px}}
