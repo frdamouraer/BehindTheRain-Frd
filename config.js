@@ -5,7 +5,7 @@ const siteConfig = {
     3: "images/chapter-03.webp",
     4: "images/chapter-04.webp",
     5: "images/chapter-05.webp",
-    6: "images/chapter-06.png",
+    6: "images/chapter-06.webp",
     7: "images/chapter-07.webp",
     8: "images/chapter-08.webp",
     10: "images/chapter-10.jpg"
