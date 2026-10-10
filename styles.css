@@ -134,3 +134,73 @@ body {
   backdrop-filter: blur(22px);
   -webkit-backdrop-filter: blur(22px);
 }
+
+/* === GLOWING STARFALL === */
+.starfall {
+  position: fixed;
+  inset: -100px 0 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0.9;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,1) 0 1px, transparent 2px),
+    radial-gradient(circle, rgba(225,243,255,.95) 0 1.2px, transparent 2.5px),
+    radial-gradient(circle, rgba(255,255,255,.8) 0 .8px, transparent 2px),
+    radial-gradient(circle, rgba(255,255,255,.9) 0 1px, transparent 2.2px);
+  background-size:
+    137px 190px,
+    211px 260px,
+    173px 220px,
+    263px 310px;
+  background-position:
+    15px 0,
+    80px 40px,
+    30px 100px,
+    140px 20px;
+  animation: starsFall 18s linear infinite;
+  filter: drop-shadow(0 0 4px rgba(210,238,255,.8));
+}
+
+@keyframes starsFall {
+  from {
+    background-position:
+      15px -190px,
+      80px -260px,
+      30px -220px,
+      140px -310px;
+  }
+  to {
+    background-position:
+      45px 760px,
+      110px 1040px,
+      0 880px,
+      180px 1240px;
+  }
+}
+
+/* A few brighter, softly glowing stars */
+.starfall::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, #fff 0 1.5px, rgba(210,238,255,.45) 2px, transparent 7px),
+    radial-gradient(circle, #fff 0 1px, rgba(210,238,255,.35) 2px, transparent 6px);
+  background-size: 307px 370px, 401px 440px;
+  background-position: 60px 20px, 190px 100px;
+  animation: starsTwinkle 3.5s ease-in-out infinite alternate;
+}
+
+@keyframes starsTwinkle {
+  from { opacity: .35; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .starfall,
+  .starfall::after {
+    animation: none;
+  }
+}
+
