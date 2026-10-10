@@ -44,8 +44,9 @@ h1{font:500 clamp(55px,9vw,91px)/.98 'Playfair Display',serif;letter-spacing:-.0
 
 /* === BEHIND THE RAIN: LIVING BACKGROUND === */
 
-/* Hujan lebih terlihat, tetap lembut */
+/* Hujan disimpan, tetapi sementara disembunyikan */
 .rain-layer {
+  display: none;
   opacity: 0.38;
   background-image:
     repeating-linear-gradient(
@@ -56,6 +57,8 @@ h1{font:500 clamp(55px,9vw,91px)/.98 'Playfair Display',serif;letter-spacing:-.0
     );
   background-size: 140px 250px;
   animation: rain 1.15s linear infinite;
+}
+
 }
 
 /* Gradient biru bergerak perlahan */
