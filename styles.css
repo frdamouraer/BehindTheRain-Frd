@@ -154,7 +154,7 @@ body {
     radial-gradient(circle, #fff 0 1.2px, rgba(220,242,255,.6) 2px, transparent 4px);
   background-size: 113px 173px, 167px 223px, 241px 197px;
   background-position: 20px 0, 70px 50px, 130px 20px;
-  animation: starsFall 12s linear infinite;
+  animation: starsFall 35s linear infinite;
   filter: drop-shadow(0 0 5px rgba(220,242,255,.9));
 }
 
@@ -167,7 +167,7 @@ body {
     radial-gradient(circle, #fff 0 1.5px, rgba(220,242,255,.6) 3px, transparent 7px);
   background-size: 307px 330px, 397px 420px;
   background-position: 50px 0, 200px 100px;
-  animation: starsFall 17s linear infinite, starsTwinkle 2.8s ease-in-out infinite alternate;
+  animation: starsFall 45s linear infinite, starsTwinkle 4s ease-in-out infinite alternate;
 }
 
 @keyframes starsFall {
@@ -180,3 +180,33 @@ body {
   to { opacity: 1; }
 }
 
+
+/* Starfall: slower, softer, seamless-looking fade */
+.starfall {
+  animation-duration: 35s, 35s;
+  animation-timing-function: linear, ease-in-out;
+  animation-iteration-count: infinite, infinite;
+  opacity: 0;
+  animation-name: starsFall, starsFade;
+}
+
+.starfall::after {
+  animation-duration: 45s, 4s;
+  animation-timing-function: linear, ease-in-out;
+  animation-iteration-count: infinite, infinite;
+}
+
+@keyframes starsFade {
+  0% {
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  78% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
