@@ -210,3 +210,9 @@ body {
     opacity: 0;
   }
 }
+
+.chapter-card {
+  background: rgba(15, 35, 53, 0.48);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
