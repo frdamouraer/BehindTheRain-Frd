@@ -36,7 +36,7 @@ const chapters = [
    <div class="chat-bubble"><small>HER MESSAGE</small>will u be my doraemon?</div>
    <div class="chat-bubble farid"><small>THE DEAL</small>then i'll be ur rainbow ruby</div>
   </div>
-  <img class="story-image" src="images/chapter-06.webp" alt="Ilustrasi Doraemon dan Rainbow Ruby berdiri berdampingan di kota saat hujan senja" onerror="this.style.display='none'">
+  <img class="story-image" src="images/doraemon-rainbow-ruby.png" alt="Ilustrasi Doraemon dan Rainbow Ruby berdiri berdampingan di kota saat hujan senja" onerror="this.style.display='none'">
   <p>Entah nanti petualangannya ke mana. Untuk sekarang, obrolan itu aja udah jadi salah satu hal kecil yang menyenangkan buat diingat.</p>
   <p class="small-note">Maybe the best adventures don't always need a destination.</p>`},
  {title:"A Kind of Understanding",type:"CARE, WITH BOUNDARIES",kicker:"CHAPTER 07 · BEING THERE",body:`
