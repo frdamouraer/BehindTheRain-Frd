@@ -222,3 +222,16 @@ document.getElementById('homeLink').addEventListener('click',e=>{
       }).catch(() => {});
   }
 })();
+
+
+// Signature intro: show once on initial load, then reveal the original entry screen.
+(function runSignatureIntro(){
+  const intro=document.getElementById('signatureIntro');
+  const entry=document.getElementById('entryScreen');
+  if(!intro||!entry)return;
+  window.setTimeout(()=>{
+    intro.classList.remove('active');
+    intro.setAttribute('aria-hidden','true');
+    entry.classList.add('active');
+  },4250);
+})();
