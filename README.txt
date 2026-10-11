@@ -1,13 +1,5 @@
 BEHIND THE RAIN — CLEAN RESET
 
-Cara pakai:
-1. Ekstrak ZIP ini ke folder baru. Jangan gabungkan dengan folder demo lama yang CSS-nya sudah diedit.
-2. Buka folder hasil ekstrak di VS Code.
-3. Letakkan GIF kamu di images/running-duo.gif.
-4. Letakkan lagu kamu di audio/background-music.mp3.
-5. Buka config.js untuk mengganti judul lagu dan path aset.
-6. Buka index.html di Chrome untuk tes. Musik diputar hanya setelah tombol Play ditekan.
-
 File media:
 - images/running-duo.gif
 - images/chapter-01.jpg sampai images/chapter-10.jpg (opsional)
@@ -22,8 +14,4 @@ Layout:
 - Judul chapter saja yang memiliki glow lembut.
 - Musik tidak autoplay.
 
-Penghitung kunjungan:
-Belum aktif karena perlu endpoint layanan eksternal tepercaya. visitCounterUrl kosong secara default.
-
-Catatan:
-Website statis ini bukan situs privat. Pastikan kamu memiliki hak untuk membagikan media yang dipakai.
+INI ADALAH STRUKTUR WEBSITE SAYA, CATATAN UNTUK BEFORE DAN AFTER, TERIMA KASIH SUDAH BERKUNJUNG
