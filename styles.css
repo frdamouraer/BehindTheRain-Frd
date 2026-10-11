@@ -296,3 +296,17 @@ body {
 @keyframes signatureIntroExit{to{opacity:0;visibility:hidden;pointer-events:none}}
 @media(max-width:760px){.signature-intro{padding:24px}.signature-intro .signature{padding-left:0}.signature-intro .word-behind{font-size:clamp(58px,15vw,92px)}.signature-intro .word-rain{font-size:clamp(50px,14vw,84px)}}
 @media(prefers-reduced-motion:reduce){.signature-intro{animation:signatureIntroExit .01ms 1.2s forwards}.signature-intro .signature::before,.signature-intro .word-rain::before,.signature-intro .word-rain::after,.signature-intro .signature h1::after{animation:none;opacity:0}}
+
+/* Signature intro animation keyframes shared with AU Chapter 1 */
+
+@keyframes wordReveal{from{opacity:0;transform:translateY(17px);filter:blur(10px)}to{opacity:1;transform:none;filter:blur(0)}}
+
+@keyframes gradientFlow{0%,100%{background-position:0% center}50%{background-position:100% center}}
+
+@keyframes introRayFlash{0%{opacity:0;transform:scale(.7) rotate(-9deg)}12%{opacity:.82}28%{opacity:.62;transform:scale(.95) rotate(-2deg)}55%{opacity:.3;transform:scale(1.08) rotate(1deg)}78%{opacity:.12}100%{opacity:0;transform:scale(1.18) rotate(3deg)}}
+
+@keyframes rainWordRayFlash{0%{opacity:0;transform:scale(.68)}12%{opacity:1;transform:scale(.88)}28%{opacity:.7;transform:scale(1)}52%{opacity:.35;transform:scale(1.08)}78%{opacity:.12}100%{opacity:0;transform:scale(1.15)}}
+
+@keyframes titleGlowFlash{0%{opacity:0;transform:scale(.72)}18%{opacity:.85}38%{opacity:.55;transform:scale(1)}68%{opacity:.2}100%{opacity:0;transform:scale(1.12)}}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
